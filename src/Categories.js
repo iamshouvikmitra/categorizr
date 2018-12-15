@@ -7,18 +7,16 @@ class Categories extends Component {
 
     render() {
         let items = this.props.items
-        console.log(items)
         let data = items ? (
             items.map(item=>{
                 return(
-                    <div className="chip" key={item.id}>
-                    {item.name}
+                    <div className="chip" key={item.id} onClick={()=>{this.props.handleClick(item.id)}} dangerouslySetInnerHTML={{__html: item.name}}>
                     </div>      
                 )
             })
         ) : (
             <div className="chip">
-            No Data
+            No Categories Yet
             </div>
             )
         return (
