@@ -83,7 +83,7 @@ class App extends Component {
       <div className="App">
         <nav>
           <div className="nav-wrapper">
-            <a href="\home" className="brand-logo">Categorizr</a>
+            <a href="\home" className="brand-logo center">Categorizr</a>
           </div>
         </nav>
         <div className="section">
@@ -91,7 +91,7 @@ class App extends Component {
             <form action="" onSubmit={this.handleSubmit}>
               <div className="row">
                 <div className="input-field col s10">
-                  <input type="text" className="active" id="website" placeholder="Website Name . ." onChange={this.handleChange} />
+                  <input type="text" className="active flow-text" id="website" placeholder="Website Name . ." onChange={this.handleChange} />
                 </div>
                 <button className="btn waves-effect waves-light btn-large" type="submit" name="action">Go <i class="material-icons right">send</i></button>
               </div>
