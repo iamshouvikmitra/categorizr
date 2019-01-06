@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import Categories from './Categories'
 import axios from 'axios'
+import 'materialize-css/dist/css/materialize.min.css';
+import './App.css'
+
+import Header from './Header'
 
 class App extends Component {
   state = {
@@ -19,19 +23,19 @@ class App extends Component {
   handleClick = (id) => {
     console.log('Clicked ' + id);
     this.setState({
-      loading:true
+      loading: true
     })
     axios.get("https://" + this.state.website + "/wp-json/wp/v2/posts?per_page=20&categories=" + id)
       .then((response) => {
         this.setState({
           posts: response.data,
-          loading:false
+          loading: false
         })
       })
       .catch(function (error) {
         console.log(error)
         this.setState({
-          loading:false
+          loading: false
         })
       });
   }
@@ -46,7 +50,7 @@ class App extends Component {
         this.setState({
           items: response.data,
           loading: false,
-          posts:null
+          posts: null
         })
       })
       .catch(function (error) {
@@ -75,40 +79,42 @@ class App extends Component {
         )
       })
     ) : (
-      <div className="chip">
-      No Posts Yet
+        <div className="chip">
+          No Posts Yet
       </div>
       );
     return (
       <div className="App">
-        <nav>
-          <div className="nav-wrapper red darken 3">
-            <a href="\home" className="brand-logo center">Categorizr</a>
-          </div>
-        </nav>
+        <Header />
         <div className="section">
           <div className="container">
             <form action="" onSubmit={this.handleSubmit}>
               <div className="row">
-                <div className="input-field col s10">
-                  <input type="text" className="active flow-text" id="website" placeholder="Website Name . ." onChange={this.handleChange} />
+                <div className="input-field col s12">
+                  <input type="text" className="validate" id="website" placeholder="www.techcrunch.com" onChange={this.handleChange} />
+                  <label htmlFor="website">http://</label>
                 </div>
-                <button className="btn waves-effect waves-light btn-large" type="submit" name="action">Go <i class="material-icons right">send</i></button>
+                {
+                  this.state.loading ?
+                    <div className="progress">
+                      <div className="indeterminate"></div>
+                    </div> : null
+                }
               </div>
             </form>
           </div>
         </div>
-
-        {
-          this.state.loading ?
-            <div className="progress">
-              <div className="indeterminate"></div>
-            </div> : null
-        }
-
-        <Categories items={this.state.items} handleClick={this.handleClick} />
-        <div className="container">
-          {data}
+        <div>
+          <div className="align-middle">
+            <div className="row">
+              <div className="col m4 s12">
+                <Categories items={this.state.items} handleClick={this.handleClick} />
+              </div>
+              <div className="col m8 s12 bar">
+                {data}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );

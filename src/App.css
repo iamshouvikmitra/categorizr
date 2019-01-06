@@ -1,0 +1,18 @@
+.progress{
+    padding-top: 0px !important ;
+    margin-top: 0px !important;
+}
+@media screen and (min-width: 992px){
+    .bar{
+        border-left: 1px gray solid;
+    }
+    .align-middle{
+        margin-right: 50px;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .align-middle{
+        text-align: center;
+    }
+}
