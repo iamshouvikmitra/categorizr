@@ -1,7 +1,13 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-# Check It Out Here
+**Check It Out Here
 https://naseemali925.github.io/categorizr/
+
+**Steps**
+<ol>
+  <li>write the website name(without https or https) eg. techcrunch.com</li>
+<li>Click on the button or press Enter</li>
+</ol>
 
 ## Available Scripts
 
