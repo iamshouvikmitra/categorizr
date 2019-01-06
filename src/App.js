@@ -82,7 +82,7 @@ class App extends Component {
     return (
       <div className="App">
         <nav>
-          <div className="nav-wrapper">
+          <div className="nav-wrapper red darken 3">
             <a href="\home" className="brand-logo center">Categorizr</a>
           </div>
         </nav>
